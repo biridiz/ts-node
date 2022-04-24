@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import mongoose from 'mongoose'
 import HelloWorld from './hello'
-import { Repository } from './repository';
+import { Repository } from './repository'
 
 
 class App {

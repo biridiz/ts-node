@@ -1,13 +1,13 @@
 import { createClient, RedisClientType } from 'redis'
 
 class Redis {
-  private pubClient: RedisClientType;
+  private pubClient: RedisClientType
 
   constructor() {
       this.pubClient = createClient({ url: 'redis://redis:6379' })
       console.log("Redis client connected", this.pubClient)
       this.pubClient.on('error', (err) => console.log('Redis Client Error', err))
-      this.testClient();
+      this.testClient()
   }
 
   public async testClient (): Promise<void> {

@@ -9,7 +9,12 @@ services:
     ports:
       - "3333:3333"
     volumes:
-      - "./:/usr/app"
+      - type: volume
+        source: app
+        target: /app
+      - type: bind
+        source: ./
+        target: /usr/app
 
   database:
     build:
@@ -18,7 +23,12 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - ./storage/mongodb:/var/lib/mongodb
+      - type: volume
+        source: mongodb
+        target: /mongodb
+      - type: bind
+        source: ./storage/mongodb
+        target: /var/lib/mongodb
     restart: always
 
   redis:
@@ -29,5 +39,15 @@ services:
     ports:
       - 6379:6379
     volumes:
-      - ./storage/redis:/data
+      - type: volume
+        source: redis
+        target: /redis
+      - type: bind
+        source: ./storage/redis
+        target: /data
     restart: always
+
+volumes:
+  app:
+  mongodb:
+  redis:
