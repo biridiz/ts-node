@@ -1,10 +1,10 @@
-# Setup para projeto Node
+# Setup para projetos Node
   
   - ✅ Typescript
   - ✅ Express
   - ✅ Mongodb
   - ✅ Redis
-  - ✅ Docke
+  - ✅ Docker
   - ✅ Jest
 
 ## Run
