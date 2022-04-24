@@ -1,0 +1,14 @@
+node_modules
+.eslintrc.js
+.gitignore
+jest.config.js
+LICENSE
+package-lock.json
+README.md
+storage
+docker
+docker-compose.yml
+Dockerfile
+src
+tsconfig.json
+nodemon.json
