@@ -4,7 +4,7 @@ class Redis {
   private pubClient: RedisClientType
 
   constructor() {
-      this.pubClient = createClient({ url: 'redis://redis:6379' })
+      this.pubClient = createClient({ url: 'redis://cache:6379' })
       console.log("Redis client connected", this.pubClient)
       this.pubClient.on('error', (err) => console.log('Redis Client Error', err))
       this.testClient()

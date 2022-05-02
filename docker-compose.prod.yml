@@ -2,9 +2,7 @@ version: "3.1"
 
 services:
   app:
-    build:
-      context: ./
-      dockerfile: Dockerfile
+    build: .
     command: npm start
     ports:
       - "80:3333"
@@ -16,12 +14,12 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - type: volume
-        source: mongodb
-        target: /mongodb
-      - type: bind
-        source: /data/db/
-        target: /var/lib/mongodb
+      - /data/db/:/var/lib/mongodb
+      - /mongo-init.js://docker-entrypoint-initdb.d/mongo-init.js:ro
+    environment:
+          MONGO_INITDB_ROOT_USERNAME: admin
+          MONGO_INITDB_ROOT_PASSWORD: 123
+          MONGO_INITDB_DATABASE: app
     restart: always
 
   redis:
@@ -32,14 +30,5 @@ services:
     ports:
       - 6379:6379
     volumes:
-      - type: volume
-        source: redis
-        target: /redis
-      - type: bind
-        source: /data/cache
-        target: /data
+      - /data/cache:/data
     restart: always
-
-volumes:
-  mongodb:
-  redis:

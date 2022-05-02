@@ -22,7 +22,7 @@ class App {
   }
 
   private database (): void {
-    mongoose.connect(`mongodb://database:27017/app`)
+    mongoose.connect(`mongodb://user:123@database:27017/app`)
       .then (() => {
         console.log("Connected to database!")
       })
